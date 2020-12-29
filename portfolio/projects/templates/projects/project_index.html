@@ -5,11 +5,11 @@
     <section id="one" class="wrapper style2 spotlights">
         {% for project in projects %}
             <section>
-                {% comment %} <a href="#" class="image"><img src="{% static project.image_path %}" alt="" data-position="center center" /></a> {% endcomment %}
+                <a href="{% url 'project_detail' project.pk %}" class="image"><img src="{{ project.image_path }}" alt="" data-position="center center" /></a>
                 <div class="content">
                     <div class="inner">
                         <h2>{{ project.title }}</h2>
-                        <p>{{ project.description }}</p>
+                        <p>{{ project.summary }}</p>
                         <p>{{ project.technology }}</p>
                         <ul class="actions">
                             <li><a href="{% url 'project_detail' project.pk %}" class="button">Read more</a></li>

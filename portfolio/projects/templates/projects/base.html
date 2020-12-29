@@ -35,7 +35,9 @@
 							<li><a href="{% url 'index' %}">Welcome</a></li>
 							<li><a href="{% url 'project_index' %}">Portfolio</a></li>
 							<li><a href="{% url 'skill_index' %}">Skill Set</a></li>
-							<li><a href="{% url 'project_index' %}">Experience</a></li>
+							{% for item in menu_items %}
+								<li><a href="{% url 'generic_page' item.pk %}">{{ item.title }}</a></li> 
+							{% endfor %}
 						</ul>
 					</nav>
 				</div>
@@ -45,7 +47,6 @@
 		<!-- Wrapper -->
         <div id="wrapper">
             {% block content %}{% endblock %}
-            
         </div>
 
 		<!-- Footer -->
