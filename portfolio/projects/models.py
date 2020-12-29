@@ -33,7 +33,7 @@ class Project(models.Model):
 class Skill(models.Model):
     title       = models.CharField(max_length=100)
     description = models.TextField()
-    image_path  = models.FileField(upload_to='', default='default/icons.jpg', blank=True, null=True)
+    icon_name   = models.CharField(max_length=100, blank=True, null=True)
     order       = models.IntegerField(primary_key=False, blank=True, null=True)
     
 
@@ -44,3 +44,14 @@ class Skill(models.Model):
     
     def __str__(self):
         return self.title
+    
+class Icon(models.Model):
+    aplication  = models.CharField(max_length=30, unique=True)
+    icon_name   = models.CharField(max_length=100)
+    
+    class meta:
+        verbose_name        = "Icon"
+        verbose_name_plural = "Icons"
+    
+    def __str__(self):
+        return self.aplication
