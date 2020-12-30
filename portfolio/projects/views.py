@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Project, WebPage, Skill, Icon
+from .models import Project, WebPage, Skill
 
 
 def index(request):
@@ -49,34 +49,11 @@ def generic_page(request, pk):
     }
     return render(request, 'projects/generic_page.html', context)
 
-def populate_tables(request):
-    icon = {
-        'docker':'fa-docker',
-        'linkedin':'fa-linkedin',
-        'python':'fa-python',
-        'html5':'fa-html5',
-        'css3':'fa-css3',
-        'bootstrap':'fa-bootstrap',
-        'mysql':'fa-database',
-        'js':'fa-js-square',
-        'ajax':'fa-code',
-        'jquery':'fa-code',
-        'php':'fa-php',
-        'cakePHP':'fa-code',
-        'C':'fa-code',
-        'SQF':'fa-code',
-    }
-    try:
-        for clave in icon:
-            record = Icon(aplication=clave,icon_name=icon[clave])
-            record.save()
-        success = True
-    except:
-        success = False
-    
+
+def contact(request):
     menu_items = WebPage.objects.all().filter(is_menu_item = True)
     context = {
-        'success': success,
         'menu_items':menu_items,
     }
-    return render(request, 'projects/populate_tables.html', context)
+    return render(request, 'projects/contact.html', context)
+

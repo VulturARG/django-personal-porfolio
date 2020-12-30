@@ -16,8 +16,8 @@ class WebPage(models.Model):
 class Project(models.Model):
     title       = models.CharField(max_length=100)
     summary     = models.TextField(blank=True, null=True)
-    description = models.TextField()
-    technology  = models.CharField(max_length=20)
+    description = models.TextField(blank=True, null=True)
+    technology  = models.CharField(max_length=200, blank=True, null=True)
     image_path  = models.FileField(upload_to='', default='default/default.jpg', blank=True, null=True)
     start_date  = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     finish_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
@@ -29,14 +29,12 @@ class Project(models.Model):
     
     def __str__(self):
         return self.title
-    
+
 class Skill(models.Model):
     title       = models.CharField(max_length=100)
     description = models.TextField()
-    icon_name   = models.CharField(max_length=100, blank=True, null=True)
     order       = models.IntegerField(primary_key=False, blank=True, null=True)
     
-
     class meta:
         verbose_name        = "Skill"
         verbose_name_plural = "Skills"
@@ -45,13 +43,3 @@ class Skill(models.Model):
     def __str__(self):
         return self.title
     
-class Icon(models.Model):
-    aplication  = models.CharField(max_length=30, unique=True)
-    icon_name   = models.CharField(max_length=100)
-    
-    class meta:
-        verbose_name        = "Icon"
-        verbose_name_plural = "Icons"
-    
-    def __str__(self):
-        return self.aplication

@@ -1,0 +1,43 @@
+[
+    {
+        "model": "projects.WebPage",
+        "pk": 1,
+        "fields": {
+            "web_page":"index",
+            "title":"Luis Briones",
+            "description":"Backend Designer"
+    }
+    },
+        {
+        "model": "projects.WebPage",
+        "pk": 2,
+        "fields": {
+            "web_page":"skills",
+            "title":"Skills Set"
+        }
+    },
+    {
+        "model": "projects.WebPage",
+        "pk": 3,
+        "fields": {
+            "web_page":"resume",
+            "title":"Resumé",
+            "is_menu_item":true
+        }
+    },
+    {
+        "model": "projects.WebPage",
+        "pk": 4,
+        "fields": {
+            "web_page":"presentation",
+            "title":"Presentation Letter",
+            "is_menu_item":true
+        }
+    }
+]
+
+
+
+
+
+    

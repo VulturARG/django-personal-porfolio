@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, WebPage, Skill, Icon
+from .models import Project, WebPage, Skill
 
 
 class WebPageAdmin(admin.ModelAdmin):
@@ -16,14 +16,8 @@ class ProjectsAdmin(admin.ModelAdmin):
 admin.site.register(Project,ProjectsAdmin)
 
 class SkillsAdmin(admin.ModelAdmin):
-    fields       = ['title','description','icon_name','order']
-    list_display = ['title','description','icon_name','order']
+    fields       = ['title','description','order']
+    list_display = ['title','description','order']
     ordering     = ['-order']
 
 admin.site.register(Skill,SkillsAdmin)
-
-class IconAdmin(admin.ModelAdmin):
-    fields       = ['aplication','icon_name']
-    list_display = ['aplication','icon_name']
-
-admin.site.register(Icon,IconAdmin)
