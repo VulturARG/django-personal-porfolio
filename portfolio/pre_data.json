@@ -13,7 +13,8 @@
         "pk": 2,
         "fields": {
             "web_page":"skills",
-            "title":"Skills Set"
+            "title":"Skills Set",
+            "description":"Phasellus non feugiat nisl, ultrices blandit felis. Etiam posuere odio ut ornare pellentesque."
         }
     },
     {
@@ -22,6 +23,7 @@
         "fields": {
             "web_page":"resume",
             "title":"Resumé",
+            "description":"Nam vel nisi id elit rutrum suscipit a ac nisl. Phasellus non feugiat nisl, ultrices blandit felis. Vivamus odio elit, cursus ut.",
             "is_menu_item":true
         }
     },
@@ -31,6 +33,7 @@
         "fields": {
             "web_page":"presentation",
             "title":"Presentation Letter",
+            "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dictum aliquet porttitor. Etiam posuere odio ut ornare pellentesque. Nunc pharetra eu purus non luctus. Duis eget arcu eros.",
             "is_menu_item":true
         }
     }
