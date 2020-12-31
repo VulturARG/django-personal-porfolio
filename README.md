@@ -1,2 +1,1 @@
-# utn.ba-django-porfolio
-Personal Portfolio in Django
+#Personal Portfolio in Django
