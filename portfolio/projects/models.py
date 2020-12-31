@@ -43,3 +43,22 @@ class Skill(models.Model):
     def __str__(self):
         return self.title
     
+class Province(models.Model):
+    name = models.CharField(max_length=100)
+    class meta:
+        verbose_name        = "Province"
+        verbose_name_plural = "Provinces"
+    
+    def __str__(self):
+        return self.name
+    
+class City(models.Model):
+    name = models.CharField(max_length=100)
+    zip_code = models.CharField(max_length=20)
+    province = models.ForeignKey('Province', on_delete=models.CASCADE)
+    class meta:
+        verbose_name        = "City"
+        verbose_name_plural = "Citys"
+    
+    def __str__(self):
+        return self.name

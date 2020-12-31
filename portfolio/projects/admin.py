@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Project, WebPage, Skill
+from .models import Project, WebPage, Skill, City
 
 
 class WebPageAdmin(admin.ModelAdmin):
@@ -21,3 +21,5 @@ class SkillsAdmin(admin.ModelAdmin):
     ordering     = ['-order']
 
 admin.site.register(Skill,SkillsAdmin)
+
+admin.site.register(City)

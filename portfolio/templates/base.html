@@ -20,6 +20,7 @@
         <script type="text/javascript" src="{% static 'projects/js/jquery.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'projects/js/jquery.scrollex.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'projects/js/jquery.scrolly.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'projects/js/jquery-ui.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'projects/js/browser.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'projects/js/breakpoints.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'projects/js/util.js' %}"></script>
@@ -39,7 +40,7 @@
 							{% for item in menu_items %}
 								<li><a href="{% url 'generic_page' item.pk %}">{{ item.title }}</a></li> 
 							{% endfor %}
-							<li><a href="{% url 'skill_index' %}">Ajax Sample</a></li>
+							<li><a href="{% url 'ajax_example' %}">Ajax Sample</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -54,8 +55,8 @@
 		<!-- Footer -->
         <footer id="footer" class="wrapper style1-alt">
             <div class="inner">
-                <ul class="menu">
-                    <li>&copy; Luis Briones. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				<ul class="menu">
+                    <li>&copy; Luis Briones. All rights reserved.</li><li>Design: <a href="https://html5up.net/hyperspace" target="_blank">HTML5 UP</a></li>
                 </ul>
             </div>
         </footer>
