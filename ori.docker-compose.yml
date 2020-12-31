@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  web:
+    restart: always
+    #env_file: .env
+    build: .
+    ports:
+      - "5005:5005"
+    # volumes:
+    #   - static:/opt/django/static
+    #   - media:/opt/django/media
+    # networks:
+    #   - db_network
+    #   - web_network
+    # depends_on:
+    #   - db
+
+  # db:
+  #   image: postgres:12.5
+  #   environment:
+  #     - "POSTGRES_HOST_AUTH_METHOD=trust"
+    # volumes:
+    #   - postgres_data:/var/lib/postgresql/data
+
+  # nginx:
+  #   restart: always
+  #   image: "nginx:latest"
+  #   ports:
+  #     - "85:85"
+  #   volumes:
+  #     - ./config_docker/nginx:/etc/nginx/conf.d
+  #   networks:
+  #     - web_network
+  #   depends_on: 
+  #     - web
+
+# volumes:
+  # - static:
+  # - media:
+  # - postgres_data:
+      
+# networks:
+#   db_network:
+#     driver: bridge
+#   web_network:
+#     driver: bridge
