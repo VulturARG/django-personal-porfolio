@@ -1,5 +1,6 @@
 {% extends "base.html" %} 
 {% load static %}
+<script type="text/javascript" src="{% static 'projects/js/llena_datos.js' %}"></script>
 {% block content %}
   <section id="three" class="wrapper style1 fade-up">
     <div class="inner">
@@ -13,49 +14,36 @@
                 <label for="ciudad">Ciudad</label>
                 <input type="text" name="ciudad" id="ciudad" />
               </div>
-              <div class="field half">
-                <label for="provincia">Provincia</label>
-                <input type="text" name="provincia" id="provincia" />
-              </div>
-              <div class="field half">
-                <label for="cp">Código Postal</label>
-                <input type="text" name="cp" id="cp" />
-              </div>
             </div>
             <ul class="actions">
-              <li><a href="" class="button submit">Enviar</a></li>
+              <li><a href="" class="button submit" id="completar">Completar</a></li>
             </ul>
           </form>
         </section>
         <section>
-									<ul class="contact">
-										<li>
-											<h3>Ciudad</h3>
-											<span>12345 Somewhere Road #65</span>
-										</li>
-										<li>
-											<h3>Código Postal</h3>
-											<a href="#">user@untitled.tld</a>
-										</li>
-										<li>
-											<h3>Provincia</h3>
-											<span>(000) 000-0000</span>
-										</li>
-
-									</ul>
-								</section>
+          <div id="datos">
+            <ul class="contact">
+              <li>
+                <h3>Código Postal</h3>
+                <span></span>
+              </li>
+              <li>
+                <h3>Provincia</h3>
+                <span></span>
+              </li>
+            </ul>
+          </div>
+        </section>
       </div>
     </div>
   </section>
 
-<script type="text/javascript" >
-  $( "#ciudad" ).autocomplete({
-      source: "/search_city",
-      delay: 300
-    });
-</script>
-{% endblock %}
+  <script type="text/javascript" >
+    $( "#ciudad" ).autocomplete({
+        source: "/search_city",
+        delay: 300,
+        minLength: 2
+      });
+  </script> 
 
-$( ".selector" ).autocomplete({
-  delay: 500
-});
+{% endblock %}

@@ -70,12 +70,32 @@ class SearchCity(View):
     def get(self, request):
         if request.is_ajax:
             search_term = request.GET.get('term', '')
-            print(search_term)
-            city = City.objects.filter(name__icontains = search_term)
+            city = City.objects.filter(name__icontains = search_term)[0:10]
             results = []
             for an in city:
                 data = {}
                 data['label'] = an.name
+                results.append(data)
+            data_json = json.dumps(results)
+        else:
+            data_json = "failure"
+        mimetype = "application/json"
+        return HttpResponse(data_json, mimetype)
+    
+    
+class SearchExtraData(View):
+
+    def get(self, request):
+        if request.is_ajax:
+            search_term = request.GET.get('term', '')
+            datos = City.objects.filter(name__icontains = search_term)
+            results = []
+            data = {}
+            for dato in datos:
+                data = {}
+                data['label'] = dato.name
+                data['zip'] = dato.zip_code
+                data['name'] = dato.province.name
                 results.append(data)
             data_json = json.dumps(results)
         else:

@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
-from .views import SearchCity
+from .views import SearchCity, SearchExtraData
 
 urlpatterns = [
 
@@ -13,5 +13,6 @@ urlpatterns = [
     path("generic/<int:pk>/", views.generic_page, name="generic_page"),
     path("ajax/", views.ajax_example, name="ajax_example"),
     path("search_city/", SearchCity.as_view(), name="search_city"),
+    path("ajax/search_extra/", SearchExtraData.as_view(), name="search_extra"),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
