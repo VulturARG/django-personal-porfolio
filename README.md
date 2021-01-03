@@ -14,18 +14,13 @@ Además, se pueden crear paginas dinámicamente desde el panel de administració
 Se agregó para esta entrega una página de ejemplo de uso de tecnología Ajax y JQurry UI
 
 ## Características técnicas:
-- Configurado para correr en un entorno virtual de desarrollo o producción. El cambio de entorno de desarrollo o producción se hace colocando en el archivo manage.py dev o prod en DJANGO_SETTINGS_MODULE.
-- Modificado el archivo setting.py a un directorio setting con los archivos:
+- Entorno de desarrollo usando manage.py
+- Entorno de producción usando manage-prod.py
+- Cambiado el archivo setting.py a un directorio setting con los archivos:
 	- base.py: settings comunes a desarrollo y producción
 	- dev.py: settings para el entorno de desarrollo
 	- prod.py: settings para el entorno de producción
-- Se comenzo a trabajar para montar en un server mediante Docker, pero no se alcanzao a terminar de configurar
-
-
-Ej. de desarrollo:
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio.settings.dev')
-
+- Se comenzo a trabajar para montar en un server mediante Docker, pero no se alcanzo a terminar de configurar
 
 ## Instalación
 Cambiar dev o prod en DJANGO_SETTINGS_MODULE según lo indicado en el punto anterior
@@ -43,7 +38,10 @@ Cambiar dev o prod en DJANGO_SETTINGS_MODULE según lo indicado en el punto ante
 4) .\env\Scripts\activate
 
 5) pip3 install -r requirements.txt
+```
 
+### Correr en entorno de desarrollo
+```bash
 6) python manage.py makemigrations
 7) python manage.py migrate
 8) python manage.py createsuperuser
@@ -54,8 +52,25 @@ python manage.py loaddata pre_data.json
 # Para correr en desarrollo
 python manage.py runserver
 
-# Para configuar la aplicación en desarrollo
+# Para configuar la aplicación
 http://127.0.0.1:8000/admin
-
 ```
+
+### Correr en entorno de producción
+```bash
+6) python manage-prod.py makemigrations
+7) python manage-prod.py migrate
+8) python manage-prod.py createsuperuser
+
+# Opcional, para rellenar la base de datos con valores precargados
+python manage-prod.py loaddata pre_data.json
+```
+
+### Para configuar la aplicación
+```bash
+http://xxx.xxx.xxx.xxx:8000/admin
+```
+
+
+
 

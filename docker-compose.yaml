@@ -5,14 +5,17 @@ services:
     image: postgres:11.5
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    restart: always
   
   django_app:
-    build: .
+    #build: .
+    image: django:1.0
     volumes:
-      - static:/code/static
-      - .:/code
+      #- static:/code/static
+      - ./portfolio:/opt/portfolio
     depends_on:
       - db_postgres
+    restart: always
     
   nginx:
     image: nginx:1.13
@@ -23,9 +26,18 @@ services:
       - static:/code/static
     depends_on:
       - django_app
+    restart: always
 
 volumes:
-  .:
+  #.:
   postgres_data:
   static:
-  
+
+
+# services:
+#   web:
+#     image: django:1.0
+#     volumes: 
+#       - ./portfolio:/opt/portfolio
+#     ports: 
+#       - 8000:8000
