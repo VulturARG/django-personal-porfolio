@@ -11,7 +11,7 @@ services:
     #build: .
     image: django:1.0
     volumes:
-      #- static:/code/static
+      - ./config:/opt/portfolio/config
       - ./portfolio:/opt/portfolio
     depends_on:
       - db_postgres
@@ -23,7 +23,7 @@ services:
       - 8008:80
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
-      - static:/code/static
+      - static:/portfolio/static
     depends_on:
       - django_app
     restart: always
@@ -33,11 +33,3 @@ volumes:
   postgres_data:
   static:
 
-
-# services:
-#   web:
-#     image: django:1.0
-#     volumes: 
-#       - ./portfolio:/opt/portfolio
-#     ports: 
-#       - 8000:8000
