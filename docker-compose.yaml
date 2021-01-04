@@ -20,7 +20,7 @@ services:
   nginx:
     image: nginx:1.13
     ports:
-      - 8008:80
+      - 8000:80
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
       - static:/portfolio/static
