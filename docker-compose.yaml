@@ -37,7 +37,7 @@ services:
       - "8000:80"
       - "443:443"
     volumes:
-    #   - /var/run/docker.sock:/tmp/docker.sock:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
       - certs:/etc/nginx/certs:ro
       - vhostd:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
@@ -53,7 +53,7 @@ services:
       - certs:/etc/nginx/certs:rw
       - vhostd:/etc/nginx/vhost.d
       - html:/usr/share/nginx/html
-      # - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
 
 volumes:
   #.:
