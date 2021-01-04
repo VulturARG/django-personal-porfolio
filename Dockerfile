@@ -14,6 +14,4 @@ RUN python portfolio/manage-prod.py loaddata portfolio/pre_data.json
 
 CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--bind", ":8000", "--chdir", "portfolio", "portfolio.wsgi:application"]
 
-# CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
-
 
