@@ -8,8 +8,8 @@ services:
     restart: always
   
   django_app:
-    #build: .
-    image: django:1.0
+    build: .
+    #image: django:1.0
     volumes:
       - ./config:/opt/portfolio/config
       - ./portfolio:/opt/portfolio
