@@ -22,7 +22,7 @@ services:
     # ports:
     #   - 8000:80
     expose: 
-      -80
+      - 80
     volumes:
       - ./config/nginx/conf.d:/etc/nginx/conf.d
       - static:/portfolio/static
