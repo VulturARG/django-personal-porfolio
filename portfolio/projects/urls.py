@@ -15,4 +15,7 @@ urlpatterns = [
     path("search_city/", SearchCity.as_view(), name="search_city"),
     path("ajax/search_extra/", SearchExtraData.as_view(), name="search_extra"),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
