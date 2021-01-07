@@ -41,7 +41,7 @@
 							{% for item in menu_items %}
 								<li><a href="{% url 'generic_page' item.pk %}">{{ item.title }}</a></li> 
 							{% endfor %}
-							<li><a href="{% url 'ajax_example' %}">Ajax Sample</a></li>
+							{% comment %} <li><a href="{% url 'ajax_example' %}">Ajax Sample</a></li> {% endcomment %}
 						</ul>
 					</nav>
 				</div>
