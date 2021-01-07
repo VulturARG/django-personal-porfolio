@@ -71,6 +71,9 @@ python manage-prod.py loaddata pre_data.json
 http://xxx.xxx.xxx.xxx:8000/admin
 ```
 
+Fuente docker-compose producción
+https://youtu.be/vJAfq6Ku4cI
 
-
+github: (Fork)
+https://github.com/VulturARG/django-docker-compose
 
