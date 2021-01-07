@@ -1,0 +1,41 @@
+version: '3.7'
+
+services:
+  db_postgres:
+    image: postgres:11.5
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    restart: always
+  
+  django_gunicorn:
+    volumes:
+      - static:/app/static
+    env_file:
+      - .env
+    build:
+      context: .
+    expose: 
+      - "8000"
+    depends_on:
+      - db_postgres
+    restart: always
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/app/static
+    ports:
+      - "8080:80"
+    depends_on:
+      - django_gunicorn
+    restart: always
+
+volumes:
+  static:
+  postgres_data:
+

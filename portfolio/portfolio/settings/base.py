@@ -26,7 +26,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(os.path.join(__file__
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122#hdskhdkshakdheekje')
+# SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122#hdskhdkshakdheekje')
+SECRET_KEY = os.getenv('SECRET_KEY', default='S#perS3crEt_1122#hdskhdkshakdheekje')
 
 
 
@@ -88,8 +89,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-ar'
 
-#TIME_ZONE = 'america/argentina/buenos_aires'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/Buenos_Aires'
+#TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -113,3 +114,4 @@ STATICFILES_DIRS = (
 # Media files (Images, Video)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
