@@ -66,9 +66,9 @@ http://127.0.0.1:8000/admin
 
 # Opcional, para rellenar la base de datos con valores precargados
 # Si no se ejecuta, saltar al paso 7) Los datos deberan cargarse manualmente desde /admin ANTES de correr la aplicación para que no de error
-6) docker-compose exec python3 manage-prod.py loaddata pre_data.json
+6) docker-compose exec django_gunicorn python3 manage-prod.py loaddata pre_data.json
 
-7) docker-compose exec python3 manage-prod.py createsuperuser
+7) docker-compose exec django_gunicorn python3 manage-prod.py createsuperuser
 ```
 
 ### Para configuar la aplicación
