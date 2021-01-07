@@ -1,6 +1,6 @@
 #!/bin/sh
 
-python3 manage-prod.py migrate
+# python3 manage-prod.py migrate
 
 # python3 manage-prod.py collectstatic --no-input
 

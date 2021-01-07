@@ -11,6 +11,10 @@ RUN apt-get update \
 
 RUN pip3 install --upgrade wheel==0.34.2 setuptools==49.6.0
 
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
 COPY ./requirements.txt .
 RUN pip3 install -r requirements.txt
 
