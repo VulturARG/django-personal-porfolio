@@ -5,6 +5,11 @@ services:
     image: postgres:11.5
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    #  - PGDATA=/var/lib/postgresql/data/pgdata
     restart: always
   
   django_gunicorn:
