@@ -22,8 +22,7 @@ Se agregó para esta entrega una página de ejemplo de uso de tecnología Ajax y
 	- prod.py: settings para el entorno de producción
 - Se comenzo a trabajar para montar en un server mediante Docker, pero no se alcanzo a terminar de configurar
 
-## Instalación
-Cambiar dev o prod en DJANGO_SETTINGS_MODULE según lo indicado en el punto anterior
+## Instalación en entorno de desarrollo
 
 ```bash
 1) git clone https://github.com/VulturARG/django-personal-porfolio.git
@@ -56,19 +55,29 @@ python manage.py runserver
 http://127.0.0.1:8000/admin
 ```
 
-### Correr en entorno de producción
+## Instalación y puesta en marcha en entorno de producción
 ```bash
-6) python manage-prod.py makemigrations
-7) python manage-prod.py migrate
-8) python manage-prod.py createsuperuser
+1) Instalar Docker
+2) Instalar Docker Composer
+
+3) sudo git clone https://github.com/VulturARG/django-personal-porfolio.git
+4) cd django-personal-porfolio
+5) docker-compose up -d
 
 # Opcional, para rellenar la base de datos con valores precargados
-python manage-prod.py loaddata pre_data.json
+# Si no se ejecuta, saltar al paso 7) Los datos deberan cargarse manualmente desde /admin ANTES de correr la aplicación para que no de error
+6) docker-compose exec python3 manage-prod.py loaddata pre_data.json
+
+7) docker-compose exec python3 manage-prod.py createsuperuser
 ```
 
 ### Para configuar la aplicación
 ```bash
 http://xxx.xxx.xxx.xxx:8000/admin
+```
+### Para examinar dentro del contenedor.
+```bash
+docker-compose exec django_gunicorn bash
 ```
 
 Fuente docker-compose producción
