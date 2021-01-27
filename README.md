@@ -100,6 +100,11 @@ DJANGO_SU_EMAIL=admin12@admin.com
 DJANGO_SU_PASSWORD=mypass123
 ```
 
+To dump database to file:
+```bash
+python manage.py dumpdata projects --indent 2 > test.json
+```
+
 Source docker-compose producción
 https://youtu.be/vJAfq6Ku4cI
 

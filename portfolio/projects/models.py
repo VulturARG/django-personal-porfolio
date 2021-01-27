@@ -1,9 +1,11 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 class WebPage(models.Model):
     web_page    = models.CharField(max_length=30, unique=True)
     title       = models.CharField(max_length=100)
-    description = models.TextField()
+    #description = models.TextField()
+    description = HTMLField(verbose_name="Descripción")
     is_menu_item = models.BooleanField(default=False)
 
     class meta:
