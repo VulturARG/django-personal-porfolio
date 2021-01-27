@@ -19,8 +19,6 @@ services:
       - .env
     build:
       context: .
-    # ports:
-    #   - "8000:8000"
     expose: 
       - "8000"
     depends_on:
@@ -32,7 +30,7 @@ services:
     volumes:
       - static:/app/static
     ports:
-      - "8080:80"
+      - "8000:80"
     depends_on:
       - django_gunicorn
     restart: always
