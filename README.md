@@ -2,24 +2,25 @@
 
 ## Framework: Django
 
-## Descripción:
-Esta aplicación permite la publicación de un portafolio personal de un desarrollador, donde se pueden exponer sus trabajos y sus conocimientos y habilidades.
+## Description:
+This application show a personal portfolio of a developer, where their work, their knowledge and skills can be exposed.
 
-Consta de 3 páginas fijas:
-- **Welcome:** Página de bienvenida (home o index) Dividido en un título y una descripción configurables por el administrador y guardados en la base de datos.
-- **Portfolio:** Página donde se muestran los distintos proyectos con una imagen, un resumen y cuenta con un link a una página de detalles. Son configurables por el administrador y guardados en la base de datos.
-- **Skill Set:** Página donde se muestran las diferentes habilidades o conocimientos. Son configurables por el administrador y guardados en la base de datos.
-Además, se pueden crear paginas dinámicamente desde el panel de administración, las cuales constan de un título y una descripción. Se guardan en la base de datos.
+Have 3 fixed pages:
+- **Welcome:** home or index page. Divided into a title and description, configurable by the administrator and saved in the database. Must be configured prior to use.
+- **Portfolio:** Page where the different projects are shown with an image, a summary and has a link to a details page. The projects are configurable by the administrator and saved in the database.
+- **Skill Set:** Page where the different skills or knowledge are displayed. The skill are configurable by the administrator and saved in the database.
+  
+In addition, extra pages can be created dynamically from the administration panel, which consist of a title and a description. They are saved in the database.
 
-## Características técnicas:
-- Entorno de desarrollo usando manage.py
-- Entorno de producción usando manage-prod.py
-- Cambiado el archivo setting.py a un directorio setting con los archivos:
-	- base.py: settings comunes a desarrollo y producción
-	- dev.py: settings para el entorno de desarrollo
-	- prod.py: settings para el entorno de producción
+## Technical characteristics:
+- Development environment using manage.py
+- Production environment using manage-prod.py
+- Changed the setting.py file to a setting directory with the files:
+	- base.py: settings common to development and production
+	- dev.py: settings for the development environment
+	- prod.py: settings for the production environment
 
-## Instalación en entorno de desarrollo
+## Installation in development environment
 
 ```bash
 1) git clone https://github.com/VulturARG/django-personal-porfolio.git
@@ -36,45 +37,45 @@ Además, se pueden crear paginas dinámicamente desde el panel de administració
 5) pip3 install -r requirements.txt
 ```
 
-### Correr en entorno de desarrollo
+### First time run in development environment
 ```bash
 6) python manage.py makemigrations
 7) python manage.py migrate
 8) python manage.py createsuperuser
 
-# Opcional, para rellenar la base de datos con valores precargados
+# Optional, to populate the database with preloaded values
 python manage.py loaddata pre_data.json
 
-# Para correr en desarrollo
+# To run in development
 python manage.py runserver
 
-# Para configuar la aplicación
+# To configure the application
 http://127.0.0.1:8000/admin
 ```
 
-## Instalación y puesta en marcha en entorno de producción con Docker
+## Installation and start up in production environment with Docker
 ```bash
-1) Instalar Docker
-2) Instalar Docker Composer
+1) Install Docker
+2) Install Docker Composer
 
 3) sudo git clone https://github.com/VulturARG/django-personal-porfolio.git
 4) cd django-personal-porfolio
-5) Crear archivo .env (Formato abajo)
+5) Create file .env (Formato abajo)
 6) docker-compose up -d
 7) docker-compose exec django_gunicorn python3 manage-prod.py migrate
 
-# Opcional, para rellenar la base de datos con valores precargados
-# Si no se ejecuta, saltar al paso 7) Los datos deberan cargarse manualmente desde /admin ANTES de correr la aplicación para que no de error
+# Optional, to populate the database with preloaded values
+# If it does not run, skip to step 7) The data should be loaded manually from / admin BEFORE running the application so that no error
 8) docker-compose exec django_gunicorn python3 manage-prod.py loaddata pre_data.json
 
 9) docker-compose exec django_gunicorn python3 manage-prod.py createsuperuser
 ```
 
-### Para configuar la aplicación
+### To configure the application
 ```bash
 http://xxx.xxx.xxx.xxx:8000/admin
 ```
-### Para examinar dentro del contenedor.
+### To examine inside the container.
 ```bash
 docker-compose exec django_gunicorn bash
 ```
@@ -99,7 +100,7 @@ DJANGO_SU_EMAIL=admin12@admin.com
 DJANGO_SU_PASSWORD=mypass123
 ```
 
-Fuente docker-compose producción
+Source docker-compose producción
 https://youtu.be/vJAfq6Ku4cI
 
 github: (Fork)
