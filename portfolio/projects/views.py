@@ -16,7 +16,7 @@ def index(request):
 
 
 def project_index(request):
-    projects = Project.objects.all()
+    projects = Project.objects.all().order_by('-start_date')
     menu_items = WebPage.objects.all().filter(is_menu_item=True)
     context = {
         'projects': projects,

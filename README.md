@@ -111,3 +111,6 @@ https://youtu.be/vJAfq6Ku4cI
 github: (Fork)
 https://github.com/VulturARG/django-docker-compose
 
+
+Estudiar 
+https://emilyemorehouse.com/017-debug-django-with-docker-vs-code/
