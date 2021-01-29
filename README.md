@@ -100,9 +100,17 @@ DJANGO_SU_EMAIL=admin12@admin.com
 DJANGO_SU_PASSWORD=mypass123
 ```
 
+To dump database to file:
+```bash
+python manage.py dumpdata projects --indent 2 > test.json
+```
+
 Source docker-compose producción
 https://youtu.be/vJAfq6Ku4cI
 
 github: (Fork)
 https://github.com/VulturARG/django-docker-compose
 
+
+Estudiar 
+https://emilyemorehouse.com/017-debug-django-with-docker-vs-code/
