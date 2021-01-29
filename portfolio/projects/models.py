@@ -4,7 +4,7 @@ from tinymce.models import HTMLField
 class WebPage(models.Model):
     web_page    = models.CharField(max_length=30, unique=True)
     title       = models.CharField(max_length=100)
-    description = HTMLField(verbose_name="Description")
+    description = HTMLField(verbose_name="Description", blank=True, null=True)
     is_menu_item = models.BooleanField(default=False)
 
     class meta:

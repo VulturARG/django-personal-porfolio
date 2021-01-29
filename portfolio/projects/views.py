@@ -37,7 +37,7 @@ def project_detail(request, pk):
 
 def skill_index(request):
     skill_titles = WebPage.objects.get(web_page='skills')
-    skills = Skill.objects.all()
+    skills = Skill.objects.all().order_by('-order')
     menu_items = WebPage.objects.all().filter(is_menu_item=True)
     context = {
         'skills': skills,
