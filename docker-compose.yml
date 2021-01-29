@@ -34,6 +34,12 @@ services:
     depends_on:
       - django_gunicorn
     restart: always
+    labels:
+      - "org.label-schema.group: monitoring"
+      - traefik.http.routers.portfolio.rule=Host(`luis.briones.com.ar`)
+      - traefik.http.routers.portfolio.tls=true
+      - traefik.http.routers.portfolio.tls.certresolver=lets-encrypt
+      - traefik.port=8000
 
 volumes:
   static:
