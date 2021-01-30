@@ -41,11 +41,15 @@ services:
       - django_gunicorn
     restart: always
     labels:
-      - "traefik.docker.network=proxy"
-      - "traefik.http.routers.portfolio-secure.entrypoints=websecure"
-      - "traefik.http.routers.portfolio-secure.rule=Host(`luis.briones.com.ar`)"
-      - "traefik.http.routers.portfolio-secure.service=portfolio"
-      - "traefik.http.services.portfolio.loadbalancer.server.port=8000"
+      # - "traefik.docker.network=proxy"
+      # - "traefik.http.routers.portfolio-secure.entrypoints=websecure"
+      # - "traefik.http.routers.portfolio-secure.rule=Host(`luis.briones.com.ar`)"
+      # - "traefik.http.routers.portfolio-secure.service=portfolio"
+      # - "traefik.http.services.portfolio.loadbalancer.server.port=8000"
+      - traefik.http.routers.portfolio.rule=Host(`luis.briones.com.ar`)
+      - traefik.http.routers.portfolio.tls=true
+      - traefik.http.routers.portfolio.tls.certresolver=lets-encrypt
+      - traefik.port=8000
 
 volumes:
   static:
