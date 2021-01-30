@@ -60,6 +60,19 @@ TEMPLATES = [
     },
 ]
 
+# Application definition
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'projects',
+    'tinymce',
+]
+
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 

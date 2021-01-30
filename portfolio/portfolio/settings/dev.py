@@ -6,17 +6,10 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'projects',
+INSTALLED_APPS = INSTALLED_APPS + [
     'debug_toolbar',
-    'tinymce',
 ]
+
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases

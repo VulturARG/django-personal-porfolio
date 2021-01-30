@@ -6,19 +6,6 @@ DEBUG = False
 ALLOWED_HOSTS = ['localhost', '127.0.0.1',os.getenv('SERVER', default='127.0.0.1'),'django']
 #ALLOWED_HOSTS = ['*']
 
-# Application definition
-
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'projects',
-    'tinymce',
-]
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
