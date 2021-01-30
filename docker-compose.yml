@@ -45,28 +45,10 @@ services:
       - django_gunicorn
     restart: always
     labels:
-      - traefik.http.routers.portfolio-luis.rule=Host(`luis.briones.com.ar`)
-      - traefik.http.routers.portfolio-luis.tls=true
-      - traefik.http.routers.portfolio-luis.tls.certresolver=lets-encrypt
-#      - traefik.port=8000
-      # - "traefik.docker.network=proxy"
-      # - "traefik.http.routers.portfolio-secure.entrypoints=websecure"
-      # - "traefik.http.routers.portfolio-secure.rule=Host(`luis.briones.com.ar`)"
-      # - "traefik.http.routers.portfolio-secure.service=portfolio"
-      - "traefik.http.services.portfolio-luis-balancer.loadbalancer.server.port=8000"
-
-      # - traefik.http.routers.portfolio.rule=Host(`luis.briones.com.ar`)
-      # - traefik.http.routers.portfolio.tls=true
-      # - traefik.http.routers.portfolio.tls.certresolver=lets-encrypt
-      # - traefik.port=8000
-            
-      # - traefik.enable=true
-      # - traefik.docker.network=web
-      # - traefik.http.routers.portfolio-secure.rule=Host(`luis.briones.com.ar`)
-      # - traefik.http.routers.portfolio-secure.tls=true
-      # - traefik.http.routers.portfolio-secure.tls.certresolver=lets-encrypt
-      # - traefik.http.services.portfolio.loadbalancer.server.port=8000
-
+      - traefik.http.routers.portfolio.rule=Host(`luis.briones.com.ar`)
+      - traefik.http.routers.portfolio.tls=true
+      - traefik.http.routers.portfolio.tls.certresolver=lets-encrypt
+      - traefik.port=8000
 volumes:
   static:
   postgres_data:
