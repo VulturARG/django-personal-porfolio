@@ -1,6 +1,8 @@
 version: '3.7'
 
 networks:
+  monitor-net:
+    driver: bridge
   web:
     external: true
 
@@ -8,7 +10,7 @@ services:
   db_postgres:
     image: postgres:11.5
     networks:
-      - web
+      - monitor-net
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
@@ -21,6 +23,7 @@ services:
   django_gunicorn:
     volumes:
       - static:/app/static
+      - media:/app/media
     env_file:
       - .env
     build:
@@ -28,7 +31,7 @@ services:
     expose: 
       - "8000"
     networks:
-      - web
+      - monitor-net
     depends_on:
       - db_postgres
     restart: always
@@ -37,10 +40,12 @@ services:
     build: ./nginx
     volumes:
       - static:/app/static
+      - media:/app/media
     ports:
       - "8000:80"
     networks:
       - web
+      - monitor-net
     depends_on:
       - django_gunicorn
     restart: always
@@ -52,4 +57,3 @@ services:
 volumes:
   static:
   postgres_data:
-
