@@ -56,4 +56,5 @@ services:
       - traefik.port=8000
 volumes:
   static:
+  media:
   postgres_data:
