@@ -4,7 +4,7 @@ DEBUG = True
 
 # load production server from .env
 #ALLOWED_HOSTS = ['localhost', '127.0.0.1', config('SERVER', default='127.0.0.1')]
-ALLOWED_HOSTS = ['localhost', '127.0.0.1',os.getenv('SERVER', default='127.0.0.1'),'django']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',os.getenv('SERVER', default='127.0.0.1'),'django','luis.briones.com.ar']
 #ALLOWED_HOSTS = ['*']
 
 # Application definition
