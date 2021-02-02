@@ -24,19 +24,14 @@
         <script type="text/javascript" src="{% static 'projects/js/browser.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'projects/js/breakpoints.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'projects/js/util.js' %}"></script>
-        <script type="text/javascript" src="{% static 'projects/js/util.js' %}"></script>
 		<script src="http://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
 
 	</head>
 	<body class="is-preload">
 		<!-- Sidebar -->
         {% block sidebar %}
-			{% comment %} <section id="menu_bar">
-				<div class="inner_bar">
-					<a href="#" class="fas fa-bars" ><span class="label">kkk</span></a>
-				</div>
-			</section> {% endcomment %}
-			<section id="sidebar">
+			<a href="#home" class="menu-button" id="menu-button"><i class="fas fa-2x fa-bars"></i></a>
+			<section class="sidebar" id="sidebar">
 				<div class="inner">
 					<nav>
 						<ul>
@@ -66,6 +61,7 @@
                 </ul>
             </div>
         </footer>
+		<script type="text/javascript" src="{% static 'projects/js/dist/navbar.dev.js' %}"></script>
 	</body>
 </html>
 
