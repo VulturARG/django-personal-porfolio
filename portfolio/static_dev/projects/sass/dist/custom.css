@@ -1,31 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
-.sidebar {
-  width: 200px;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  background-color: #28262e;
-}
-.sidebar ul {
-  padding: 0;
-  margin: 0;
-  padding-top: 10px;
-}
-.sidebar ul li {
-  padding: 10px 13px;
-}
-.sidebar ul li a {
-  color: white;
-  font-size: 20px;
-}
-.sidebar ul li:hover {
-  background-color: #403d4a;
-}
-
 .menu-button {
   position: absolute;
   right: 15px;
@@ -35,12 +7,12 @@ body {
   color: black;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 736px) {
   .menu-button {
     display: none;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 736px) {
   .sidebar {
     display: block !important;
     margin-left: -200px;
