@@ -1,6 +1,6 @@
 from .base import *
 
-DEBUG = True
+DEBUG = False
 
 # load production server from .env
 ALLOWED_HOSTS = ['localhost', '127.0.0.1',os.getenv('SERVER', default='127.0.0.1'),'django']
