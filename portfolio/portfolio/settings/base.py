@@ -30,8 +30,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(os.path.join(__file__
 SECRET_KEY = os.getenv('SECRET_KEY', default='S#perS3crEt_1122#hdskhdkshakdheekje')
 
 
-
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -60,6 +58,19 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+# Application definition
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'projects',
+    'tinymce',
 ]
 
 WSGI_APPLICATION = 'portfolio.wsgi.application'

@@ -13,9 +13,11 @@
 		<title>Personal Porfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon"href="{% static 'favicon.ico' %}">
 		<link rel="stylesheet" type="text/css" href="{% static 'projects/css/fontawesome-all.min.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'projects/css/main.css' %}" />
 		<link rel="stylesheet" href="{% static 'projects/css/noscript.css' %}" />
+		<link rel="stylesheet" href="{% static 'projects/sass/dist/custom.min.css' %}" />
         <!-- Scripts -->
         <script type="text/javascript" src="{% static 'projects/js/jquery.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'projects/js/jquery.scrollex.min.js' %}"></script>
@@ -24,14 +26,14 @@
         <script type="text/javascript" src="{% static 'projects/js/browser.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'projects/js/breakpoints.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'projects/js/util.js' %}"></script>
-        <script type="text/javascript" src="{% static 'projects/js/util.js' %}"></script>
-		<script src="http://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
 
 	</head>
 	<body class="is-preload">
 		<!-- Sidebar -->
         {% block sidebar %}
-			<section id="sidebar">
+			<a href="#" class="menu-button" id="menu-button"><i class="fas fa-2x fa-bars"></i></a>
+			<section class="sidebar" id="sidebar">
 				<div class="inner">
 					<nav>
 						<ul>
@@ -61,6 +63,7 @@
                 </ul>
             </div>
         </footer>
+		<script type="text/javascript" src="{% static 'projects/js/navbar.js' %}"></script>
 	</body>
 </html>
 
