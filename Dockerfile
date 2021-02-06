@@ -5,7 +5,8 @@ RUN apt-get update \
             python3 \
             python3-pip \
             python3-dev \
-            libpq-dev
+            libpq-dev \
+            tree
 
 # RUN pip3 install --upgrade pip
 
