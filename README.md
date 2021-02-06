@@ -55,20 +55,21 @@ http://127.0.0.1:8000/admin
 
 ## Installation and start up in production environment with Docker
 ```bash
-1) Install Docker
-2) Install Docker Composer
+ 1) Install Docker
+ 2) Install Docker Composer
 
-3) sudo git clone https://github.com/VulturARG/django-personal-porfolio.git
-4) cd django-personal-porfolio
-5) Create file .env (Formato abajo)
-6) docker-compose up -d
-7) docker-compose exec django_gunicorn python3 manage-prod.py migrate
+ 3) sudo git clone https://github.com/VulturARG/django-personal-porfolio.git
+ 4) cd django-personal-porfolio
+ 5) Create file .env (Formato abajo)
+ 6) docker-compose up -d
+ 7) docker-compose exec django_gunicorn python3 manage-prod.py migrate
 
 # Optional, to populate the database with preloaded values
 # If it does not run, skip to step 7) The data should be loaded manually from / admin BEFORE running the application so that no error
-8) docker-compose exec django_gunicorn python3 manage-prod.py loaddata pre_data.json
+ 8) docker-compose exec django_gunicorn python3 manage-prod.py loaddata pre_data.json
 
-9) docker-compose exec django_gunicorn python3 manage-prod.py createsuperuser
+ 9) docker-compose exec django_gunicorn python3 manage-prod.py createsuperuser
+10) docker-compose exec django_gunicorn collectstatic
 ```
 
 ### To configure the application
