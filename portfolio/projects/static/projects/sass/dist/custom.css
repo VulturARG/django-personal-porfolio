@@ -19,12 +19,12 @@
     margin-left: -100%;
     transition: margin-left 350ms cubic-bezier(0.075, 0.82, 0.165, 1) !important;
   }
-  #sidebar a {
-    color: white;
-  }
 
   #sidebar.show-sidebar {
     margin-left: 0px !important;
     transition: margin-left 350ms cubic-bezier(0.075, 0.82, 0.165, 1) !important;
+  }
+  #sidebar.show-sidebar a {
+    color: white;
   }
 }
