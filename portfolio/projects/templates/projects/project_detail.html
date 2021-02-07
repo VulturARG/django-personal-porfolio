@@ -6,7 +6,7 @@
   </div>
   <div class="col-md-4">
     <h5>From - To:</h5>
-    <p>{{ project.start_date }} - {% if project.finish_date is null %} Present {% else %} {{ project.finish_date }} {% endif %}</p>
+    <p>{{ project.start_date }} - {% if project.finish_date %} {{ project.finish_date }} {% else %} Present {% endif %}</p>
     <h5>About the project:</h5>
     <p>{{ project.description|safe }}</p>
     <br />
