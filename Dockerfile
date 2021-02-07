@@ -23,7 +23,7 @@ COPY ./portfolio /app
 
 WORKDIR /app
 
-RUN python3 manage-prod.py collectstatic --no-input
+#RUN python3 manage-prod.py collectstatic --no-input
 
 COPY ./entrypoint.sh /
 ENTRYPOINT ["sh", "/entrypoint.sh"]
