@@ -69,7 +69,7 @@ http://127.0.0.1:8000/admin
  8) docker-compose exec django_gunicorn python3 manage-prod.py loaddata pre_data.json
 
  9) docker-compose exec django_gunicorn python3 manage-prod.py createsuperuser
-10) docker-compose exec django_gunicorn collectstatic
+10) docker-compose exec django_gunicorn python3 manage-prod.py collectstatic
 ```
 
 ### To configure the application
