@@ -1,5 +1,6 @@
 *.code-workspace
 .history
+.env
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -13,7 +14,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
+#dist/
 downloads/
 eggs/
 .eggs/
@@ -61,7 +62,7 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-db.sqlite3
+#db.sqlite3
 db.sqlite3-journal
 
 # Flask stuff:

@@ -1,0 +1,92 @@
+{% load staticfiles %}
+
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
+    Adapted to Django by Luis Briones 
+-->
+<html>
+	<head>
+		<title>Personal Porfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="icon"href="{% static 'favicon.ico' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'projects/css/fontawesome-all.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'projects/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'projects/css/noscript.css' %}" />
+		<link rel="stylesheet" href="{% static 'projects/sass/dist/custom.min.css' %}" />
+	</head>
+	<body class="is-preload">
+		<!-- Sidebar -->
+        {% block sidebar %}
+			<a href="#" class="menu-button" id="menu-button"><i id = "fas" class="fas fa-2x fa-bars"></i></a>
+			<section class="sidebar" id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li>
+								{% if activate == 'index' %} 
+									<a href="{% url 'index' %}" class="active">Welcome</a>
+								{% else %} 
+									<a href="{% url 'index' %}">Welcome</a>
+								{% endif %}
+							</li>
+							<li>
+								{% if activate == 'project_index' %} 
+									<a href="{% url 'project_index' %}" class="active">Portfolio</a>
+								{% else %} 
+									<a href="{% url 'project_index' %}">Portfolio</a>
+								{% endif %}
+							</li>
+							<li>
+								{% if activate == 'skill_index' %} 
+									<a href="{% url 'skill_index' %}" class="active">Skill Set</a>
+								{% else %} 
+									<a href="{% url 'skill_index' %}">Skill Set</a>
+								{% endif %}
+							</li>
+							{% for item in menu_items %}
+								<li>
+								{% if activate == item.pk %} 
+									<a href="{% url 'generic_page'  item.pk %}" class="active">{{ item.title }}</a>
+								{% else %} 
+									<a href="{% url 'generic_page'  item.pk %}">{{ item.title }}</a>
+								{% endif %}
+							</li>
+							{% endfor %}
+						</ul>
+					</nav>
+				</div>
+			</section>
+        {% endblock %}
+
+		<!-- Wrapper -->
+        <div id="wrapper">
+            {% block content %}{% endblock %}
+        </div>
+
+		<!-- Footer -->
+        <footer id="footer" class="wrapper style1-alt">
+            <div class="inner">
+				<ul class="menu">
+                    <li>&copy; Luis Briones. All rights reserved.</li><li>Design: <a href="https://html5up.net/hyperspace" target="_blank">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </footer>
+		<!-- Scripts -->
+		<script type="text/javascript" src="{% static 'projects/js/jquery.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'projects/js/jquery-ui.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'projects/js/browser.min.js' %}"></script>
+		<script type="text/javascript" src="{% static 'projects/js/remark.js' %}"></script>
+		<script type="text/javascript" src="{% static 'projects/js/navbar.js' %}"></script>
+		<script src="https://cdn.jsdelivr.net/jquery.cookie/1.4.1/jquery.cookie.min.js"></script>
+	</body>
+</html>
+
+
+
+
+				

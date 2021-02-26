@@ -1,9 +1,10 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 class WebPage(models.Model):
     web_page    = models.CharField(max_length=30, unique=True)
     title       = models.CharField(max_length=100)
-    description = models.TextField()
+    description = HTMLField(verbose_name="Description", blank=True, null=True)
     is_menu_item = models.BooleanField(default=False)
 
     class meta:
@@ -15,8 +16,8 @@ class WebPage(models.Model):
     
 class Project(models.Model):
     title       = models.CharField(max_length=100)
-    summary     = models.TextField(blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
+    summary     = HTMLField(verbose_name="Summary", blank=True, null=True)
+    description = HTMLField(verbose_name="Description", blank=True, null=True)
     technology  = models.CharField(max_length=200, blank=True, null=True)
     image_path  = models.FileField(upload_to='', default='default/default.jpg', blank=True, null=True)
     start_date  = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
@@ -32,7 +33,7 @@ class Project(models.Model):
 
 class Skill(models.Model):
     title       = models.CharField(max_length=100)
-    description = models.TextField()
+    description = HTMLField(verbose_name="Description", blank=True, null=True)
     order       = models.IntegerField(primary_key=False, blank=True, null=True)
     
     class meta:

@@ -1,17 +1,32 @@
-FROM python:3.8
+FROM debian:buster-slim
 
+RUN apt-get update \
+        && apt-get install -y --no-install-recommends \
+            python3 \
+            python3-pip \
+            python3-dev \
+            libpq-dev \
+            tree
+
+# RUN pip3 install --upgrade pip
+
+RUN pip3 install --upgrade wheel==0.34.2 setuptools==49.6.0
+
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-COPY . /opt
+COPY ./requirements.txt .
+RUN pip3 install -r requirements.txt
 
-WORKDIR /opt
+COPY ./portfolio /app
 
-RUN pip install -r requirements.txt
+WORKDIR /app
 
-RUN python portfolio/manage-prod.py makemigrations
-RUN python portfolio/manage-prod.py migrate
-RUN python portfolio/manage-prod.py loaddata portfolio/pre_data.json
+RUN rm -rfv static
+RUN python3 manage-prod.py migrate
+RUN python3 manage-prod.py collectstatic --no-input
 
-CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--bind", ":8000", "--chdir", "portfolio", "portfolio.wsgi:application"]
-
+COPY ./entrypoint.sh /
+ENTRYPOINT ["sh", "/entrypoint.sh"]
 
