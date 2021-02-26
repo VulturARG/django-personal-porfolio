@@ -1,0 +1,60 @@
+version: '3.7'
+
+networks:
+  monitor-net:
+    driver: bridge
+  web:
+    external: true
+
+services:
+  db_postgres:
+    image: postgres:11.5
+    networks:
+      - monitor-net
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    restart: always
+  
+  django_gunicorn:
+    volumes:
+      - static:/app/static
+      - media:/app/media
+    env_file:
+      - .env
+    build:
+      context: .
+    expose: 
+      - "8000"
+    networks:
+      - monitor-net
+    depends_on:
+      - db_postgres
+    restart: always
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - static:/app/static
+      - media:/app/media
+    ports:
+      - "8000:80"
+    networks:
+      - web
+      - monitor-net
+    depends_on:
+      - django_gunicorn
+    restart: always
+    labels:
+      - traefik.http.routers.portfolio.rule=Host(`luis.briones.com.ar`)
+      - traefik.http.routers.portfolio.tls=true
+      - traefik.http.routers.portfolio.tls.certresolver=lets-encrypt
+      - traefik.port=8000
+volumes:
+  static:
+  media:
+  postgres_data:
