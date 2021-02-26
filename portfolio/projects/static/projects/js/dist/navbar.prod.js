@@ -1,1 +1,0 @@
-"use strict";document.addEventListener("DOMContentLoaded",function(){document.getElementById("menu-button").addEventListener("click",function(){var e=document.getElementById("sidebar");e.classList.contains("show-sidebar")?e.classList="sidebar":e.classList="sidebar show-sidebar"})});
