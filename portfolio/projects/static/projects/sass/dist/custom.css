@@ -23,6 +23,16 @@
   z-index: 10001;
 }
 
+.back-button {
+  position: fixed;
+  left: 15px;
+  top: 10px;
+  z-index: 10002;
+}
+.back-button i {
+  color: white;
+}
+
 @media (min-width: 736px) {
   .menu-button {
     display: none;

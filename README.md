@@ -60,7 +60,7 @@ http://127.0.0.1:8000/admin
 
  3) sudo git clone https://github.com/VulturARG/django-personal-porfolio.git
  4) cd django-personal-porfolio
- 5) Create file .env (Formato abajo)
+ 5) Create file .env (see bellow)
  6) docker-compose up -d
  7) docker-compose exec django_gunicorn python3 manage-prod.py migrate
 
@@ -113,5 +113,5 @@ github: (Fork)
 https://github.com/VulturARG/django-docker-compose
 
 
-Estudiar 
+To check 
 https://emilyemorehouse.com/017-debug-django-with-docker-vs-code/
