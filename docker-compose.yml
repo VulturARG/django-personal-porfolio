@@ -1,5 +1,6 @@
 version: '3.7'
 
+<<<<<<< HEAD
 networks:
   monitor-net:
     driver: bridge
@@ -11,6 +12,11 @@ services:
     image: postgres:11.5
     networks:
       - monitor-net
+=======
+services:
+  db_postgres:
+    image: postgres:11.5
+>>>>>>> bd26d0e4e132b5a4273dce28eb270cdf75b62b6d
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
@@ -23,15 +29,21 @@ services:
   django_gunicorn:
     volumes:
       - static:/app/static
+<<<<<<< HEAD
       - media:/app/media
+=======
+>>>>>>> bd26d0e4e132b5a4273dce28eb270cdf75b62b6d
     env_file:
       - .env
     build:
       context: .
     expose: 
       - "8000"
+<<<<<<< HEAD
     networks:
       - monitor-net
+=======
+>>>>>>> bd26d0e4e132b5a4273dce28eb270cdf75b62b6d
     depends_on:
       - db_postgres
     restart: always
@@ -40,6 +52,7 @@ services:
     build: ./nginx
     volumes:
       - static:/app/static
+<<<<<<< HEAD
       - media:/app/media
     ports:
       - "8000:80"
@@ -58,3 +71,15 @@ volumes:
   static:
   media:
   postgres_data:
+=======
+    ports:
+      - "8000:80"
+    depends_on:
+      - django_gunicorn
+    restart: always
+
+volumes:
+  static:
+  postgres_data:
+
+>>>>>>> bd26d0e4e132b5a4273dce28eb270cdf75b62b6d

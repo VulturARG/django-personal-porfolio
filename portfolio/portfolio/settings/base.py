@@ -103,6 +103,10 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'America/Argentina/Buenos_Aires'
+<<<<<<< HEAD
+=======
+#TIME_ZONE = 'UTC'
+>>>>>>> bd26d0e4e132b5a4273dce28eb270cdf75b62b6d
 
 USE_I18N = True
 
